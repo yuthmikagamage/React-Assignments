@@ -2,3 +2,36 @@ label {
   color: white;
   margin-left: 20px;
 }
+.selection {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+option {
+  font-size: 16px;
+}
+.input {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-evenly;
+}
+input {
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.result {
+  display: flex;
+  justify-content: center;
+}
+.button {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+.choose {
+  font-size: 20px;
+}

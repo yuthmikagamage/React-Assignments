@@ -20,6 +20,9 @@ function Assignments_2(){
     function division(){
         setResult(num1/num2)
     }
+    function changingOperation(){
+        setOperation(event.target.value)
+    }
 
     function calculation(){
         switch (operation){
@@ -41,24 +44,34 @@ function Assignments_2(){
     return(
         <div>
             <h1> Mathematic Calculator </h1>
-            <label>Choose the Mathematical Operation </label>
+            <div className="selection">
+                <label className="choose">Choose the Mathematical Operation </label>
 
-            <select>
-                <option>Addition</option>
-                <option>Multipication</option>
-                <option>Substraction</option>
-                <option>Division</option>
-            </select>
-            <br></br>
+                <select value={operation} onChange={changingOperation}>
+                    <option>Addition</option>
+                    <option>Multipication</option>
+                    <option>Substraction</option>
+                    <option>Division</option>
+                </select>
+            </div>
 
-            <label>First Number : </label>
-            <input type="text" value={num1} onChange={event=>setNum1(event.target.value)}></input>
+            <div className="input">
+                <label>First Number : </label>
+                <input type="text" value={num1} onChange={event=>setNum1(event.target.value)}></input>
 
-            <label>Second Number : </label>
-            <input type="text" value={num2} onChange={event=>setNum2(event.target.value)}></input>
+                <label>Second Number : </label>
+                <input type="text" value={num2} onChange={event=>setNum2(event.target.value)}></input>
+            </div>
 
-            {num1 !== '' && num2 !== '' && <button onClick={calculation} >Calculate</button>}
-            <p>Result is {result}</p>
+            <div className="button">
+                {num1 !== '' && num2 !== '' && <button onClick={calculation} >Calculate</button>}
+            </div>
+
+            <div className="result">
+                {result >0 && <p>The result is {result}</p>}
+            </div>
+
+
         </div>
 
 
