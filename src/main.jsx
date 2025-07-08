@@ -4,6 +4,7 @@ import {HashRouter, Routes, Route} from 'react-router-dom'
 import App from './App.jsx'
 import Assignement_1 from './assignments/Assignment_1.jsx'
 import Assignments_2 from './assignments/Assignment_2.jsx'
+import Assignment_3 from './assignments/Assignment_3.jsx'
 
 createRoot(document.getElementById('root')).render(
   <HashRouter>
@@ -11,6 +12,7 @@ createRoot(document.getElementById('root')).render(
       <Route path='/' element={<App></App>}></Route>
       <Route path='/ASG_1' element={<Assignement_1></Assignement_1>}></Route>
       <Route path='/ASG_2' element={<Assignments_2></Assignments_2>}></Route>
+      <Route path='/ASG_3' element={<Assignment_3></Assignment_3>}></Route>
     </Routes>
   </HashRouter>
 )

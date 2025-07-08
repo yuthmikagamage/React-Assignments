@@ -57,10 +57,10 @@ function Assignments_2(){
 
             <div className="input">
                 <label>First Number : </label>
-                <input type="text" value={num1} onChange={event=>setNum1(event.target.value)}></input>
+                <input type="number" value={num1} onChange={event=>setNum1(event.target.value)}></input>
 
                 <label>Second Number : </label>
-                <input type="text" value={num2} onChange={event=>setNum2(event.target.value)}></input>
+                <input type="number" value={num2} onChange={event=>setNum2(event.target.value)}></input>
             </div>
 
             <div className="button">

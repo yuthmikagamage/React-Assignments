@@ -1,0 +1,27 @@
+h3 {
+  color: white;
+}
+.main {
+  text-align: center;
+  margin-top: 35px;
+  margin-bottom: 45px;
+}
+li {
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+ul {
+  align-items: center;
+  text-align: center;
+}
+button {
+  margin-left: 20px;
+}
+input {
+  margin-left: 20px;
+  padding: 7px 20px;
+}
+label {
+  font-size: 18px;
+}
