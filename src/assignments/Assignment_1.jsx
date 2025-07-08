@@ -9,9 +9,9 @@ function Assignement_1(){
         <div>
             <h1>Assignment 01</h1>
             <div className="buttons">
-                <button onClick={()=>setSection(1)}>Section #1</button>
-                <button onClick={()=>setSection(2)}>Section #2</button>
-                <button onClick={()=>setSection(3)}>Section #3</button>
+                <button className="fbutton" onClick={()=>setSection(1)}>Section #1</button>
+                <button className="fbutton" onClick={()=>setSection(2)}>Section #2</button>
+                <button className="fbutton" onClick={()=>setSection(3)}>Section #3</button>
             </div>
 
             {section ===1 && <p> The Honda Civic is one of the most popular compact cars in the world, known for its reliability, fuel efficiency, 
