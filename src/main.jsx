@@ -9,6 +9,7 @@ import Assignment_4 from './assignments/Assignment_4.jsx'
 import Assignment_5 from './assignments/Assignment_5.jsx'
 import Assignment_6 from './assignments/Assignment_6.jsx'
 import Assignment_7 from './assignments/Assignment_7.jsx'
+import Assignment_8 from './assignments/Assignment_8.jsx'
 
 createRoot(document.getElementById('root')).render(
   <HashRouter>
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')).render(
       <Route path='/ASG_5' element={<Assignment_5></Assignment_5>}></Route>
       <Route path='/ASG_6' element={<Assignment_6></Assignment_6>}></Route>
       <Route path='/ASG_7' element={<Assignment_7></Assignment_7>}></Route>
+      <Route path='/ASG_8' element={<Assignment_8></Assignment_8>}></Route>
     </Routes>
   </HashRouter>
 )

@@ -1,20 +1,25 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Assignment_7(){
 
     const [style,setStyles] = useState([])
 
-
-    axios.get('https://apis.dnjs.lk/objects/colors.php').then(responce=>{
-        console.log(responce.data)
-        const newStyle = responce.data
-        setStyles([...style,newStyle])
-    })
+    useEffect(()=>{
+        axios.get('https://apis.dnjs.lk/objects/colors.php').then(responce=>{
+            console.log(responce.data)
+            setStyles(responce.data)
+        })
+    },[])
 
     return(
         <div>
             <h1>Axios Get Request</h1>
+            <ul>
+                {style.map((stylee,index)=>(
+                    <li key={index}>{stylee.name} - {stylee.code}</li>
+                ))}
+            </ul>
         </div>
     )
 
