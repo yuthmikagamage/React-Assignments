@@ -4,10 +4,10 @@ import axios from "axios"
 
 function Assignment_9(){
 
-    const [number,setNumber] = useState()
-    const [limit,setLimit] = useState()
-    const [currentPage,setCurrentPage] = useState()
-    const [currentLimit,setCurrentLimit] = useState()
+    const [number,setNumber] = useState(0)
+    const [limit,setLimit] = useState(0)
+    const [currentPage,setCurrentPage] = useState(0)
+    const [currentLimit,setCurrentLimit] = useState(0)
     const [colors, setColours] = useState([])
     const[search, setSearch] = useState('')
     const [loaded, setLoaed] = useState(false)
@@ -24,7 +24,6 @@ function Assignment_9(){
                 setLoaed(true)
             }
         })
-        setSearch('')
         
     }
     function previous(){
@@ -57,11 +56,15 @@ function Assignment_9(){
                     <button type="submit" className="fbutton">Check</button>
                 </form>
             </div>
-            <ul>
-                {colors.map((color, index)=>(
+            <div className="colourslist">
+                <ul>
+                    {colors.map((color, index)=>(
                     <li key={index}>{color.name} - {color.code}</li>
-                ))}
-            </ul>
+                    ))}
+                </ul>
+
+            </div>
+
 
             <div className="prevnext">
                 {currentPage>1 && <button className="prevbutton" onClick={previous}>Previous Page</button>}
