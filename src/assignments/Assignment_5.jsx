@@ -41,7 +41,7 @@ function Assignment_5(){
     }
     return(
         <div>
-            <h1> Number Add and Delete </h1>
+            <h1>Assignment 05</h1>
             <div className="main">
                 <form onSubmit={handleSubmit}>
                     <label>Enter a Number: </label>

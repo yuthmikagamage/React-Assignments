@@ -13,6 +13,9 @@ h1 {
   text-align: center;
   font-weight: 1000;
 }
+button {
+  cursor: pointer;
+}
 .fbutton {
   border-radius: 8px;
   border: 1px solid black;
@@ -22,6 +25,10 @@ h1 {
   margin-bottom: 5%;
   font-size: 15px;
   font-weight: 500;
+}
+.fbutton:hover {
+  background-color: rgb(77, 72, 72);
+  cursor: pointer;
 }
 .buttons {
   display: flex;

@@ -18,7 +18,7 @@ function Assignment_8(){
 
     return(
         <div>
-            <h1>Search Colours</h1>
+            <h1>Assignment 08</h1>
             <div className="sear">
                 <form onSubmit={submit}>
                     <label>Search Colour </label>

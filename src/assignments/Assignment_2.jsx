@@ -43,7 +43,7 @@ function Assignments_2(){
 
     return(
         <div>
-            <h1> Mathematic Calculator </h1>
+            <h1>Assignment 02</h1>
             <div className="selection">
                 <label className="choose">Choose the Mathematical Operation </label>
 

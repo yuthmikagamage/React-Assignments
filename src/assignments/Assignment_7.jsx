@@ -14,7 +14,7 @@ function Assignment_7(){
 
     return(
         <div>
-            <h1>Axios Get Request</h1>
+            <h1>Assignment 07</h1>
             <ul>
                 {style.map((stylee,index)=>(
                     <li key={index}>{stylee.name} - {stylee.code}</li>

@@ -19,7 +19,7 @@ function Assignment_6(){
 
     return(
         <div>
-            <h1>Style Setter</h1>
+            <h1>Assignment 06</h1>
 
             <div className="inputs">
                 <form onSubmit={submit}>
