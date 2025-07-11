@@ -16,3 +16,21 @@ li {
 .sear {
   margin-bottom: 30px;
 }
+.nextbutton {
+  color: white;
+  background-color: rgb(3, 81, 81);
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+}
+.prevnext {
+  display: flex;
+  justify-content: end;
+  margin-right: 3%;
+}
+.prevbutton {
+  color: white;
+  background-color: rgb(3, 81, 81);
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+  margin-left: 3%;
+}

@@ -10,18 +10,31 @@ function Assignment_9(){
     const [currentLimit,setCurrentLimit] = useState()
     const [colors, setColours] = useState([])
     const[search, setSearch] = useState('')
+    const [loaded, setLoaed] = useState(false)
 
     function submit(){
         setCurrentLimit(limit)
         setCurrentPage(number)
 
         axios.get(`https://apis.dnjs.lk/objects/colors.php?search=${search}&page=${currentPage}&limit=${currentLimit}`).then(responce=>{
-            console.log(responce.data.data)
-            setColours(responce.data.data)
+            const datas = responce.data.data
+            console.log(datas)
+            setColours(datas)
+            if(datas.length>0){
+                setLoaed(true)
+            }
         })
-        setNumber('')
-        setLimit('')
         setSearch('')
+        
+    }
+    function previous(){
+        setNumber(number-1)
+        submit()
+    }
+
+    function next(){
+        setNumber(number+1)
+        submit()
     }
 
     return(
@@ -44,14 +57,22 @@ function Assignment_9(){
                     <button type="submit" className="fbutton">Check</button>
                 </form>
             </div>
-            <h3>Page Number is {currentPage}</h3>
-            <h3>Page Limit is {currentLimit}</h3>
-
             <ul>
                 {colors.map((color, index)=>(
                     <li key={index}>{color.name} - {color.code}</li>
                 ))}
             </ul>
+
+            <div className="prevnext">
+                {currentPage>1 && <button className="prevbutton" onClick={previous}>Previous Page</button>}
+
+                {loaded && <div>
+                    <button className="nextbutton" onClick={next}>Next Page</button>
+                </div>}
+            </div>
+
+
+
         </div>
     )
 }
