@@ -1,4 +1,4 @@
-import "./Assignment_11.css"
+import "./Assignment_11.css";
 import axios from "axios"
 import { useEffect, useState } from "react"
 
@@ -7,6 +7,9 @@ function Assignement_11(){
     const [password,setPassword] = useState("")
     const [displayResponce, setDisplayResponce] = useState("")
     const [token,setToken] = useState("")
+    const [name,setName] = useState("")
+    const [description, setDescription] = useState("")
+    const [avatar, setAvatar] = useState("")
 
     useEffect(()=>{
         setDisplayResponce("")
@@ -16,7 +19,7 @@ function Assignement_11(){
         if (token) {
             getUserDetails();
         }
-  }, [token]);
+    }, [token]);
 
     function submit(){
         console.log("Button Clicked Submitted")
@@ -27,20 +30,26 @@ function Assignement_11(){
             console.log(responce)
             setDisplayResponce("Correct Credentials")
             setToken(responce.data.access_token)
-        }).catch(setDisplayResponce("Invalid Credentials"))
-    }
-
-    function getUserDetails(){
-        axios.get("https://auth.dnjs.lk/api/user",{
-            headers:{
-                Authorization: `Bearer ${token}`
-            }
-        }).then(response=>{
-            console.log(response.data)
         }).catch(error=>{
-            console.error("Error retreiving user details",error)
+            setDisplayResponce("Invalid Credentials", error)
         })
     }
+
+        function getUserDetails(){
+            axios.get("https://auth.dnjs.lk/api/user",{
+                headers:{
+                    Authorization: `Bearer ${token}`
+                }
+            }).then(responce=>{
+                const data = responce.data
+                console.log(data)
+                setName(data.name)
+                setDescription(data.description)
+                setAvatar(data.avatar)
+            }).catch(error=>{
+                console.log("Error getting user details -",error)
+            })
+        }
 
 
     return(
@@ -55,7 +64,13 @@ function Assignement_11(){
                     <button type="submit" className="fbutton">Submit</button>
                 </form>
             </div>
-            <h3>{displayResponce} {token}</h3>
+            <h3>{displayResponce}</h3>
+            {(name || description) && <div className="displayUserDetails">
+                {avatar && <img src={avatar} className="avatar"></img>}
+                {name && <h3>Hellow {name}</h3>}
+                {description && <p>{description}</p>}
+            </div>}
+
         </div>
     )
 
