@@ -36,6 +36,7 @@ function Assignement_11(){
     }
 
         function getUserDetails(){
+            console.log("Retreiving user informations")
             axios.get("https://auth.dnjs.lk/api/user",{
                 headers:{
                     Authorization: `Bearer ${token}`

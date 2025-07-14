@@ -1,0 +1,11 @@
+.checkSubmit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.fbutton {
+  display: block;
+  margin: 20px auto 0;
+}
