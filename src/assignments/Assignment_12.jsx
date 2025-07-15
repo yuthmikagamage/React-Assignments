@@ -44,11 +44,12 @@ function Assignement_12(){
                 sessionStorage.setItem("token",responce.data.access_token)
             }
         }).catch(error=>{
-            setDisplayResponce("Invalid Credentials", error)
+            setDisplayResponce(error.response.data.error.message)
         })
     }
 
     function getUserDetails(){
+        console.log("Running get user details function")
         axios.get("https://auth.dnjs.lk/api/user",{
             headers:{
                 Authorization: `Bearer ${token}`
@@ -59,7 +60,7 @@ function Assignement_12(){
             setDescription(data.description)
             setAvatar(data.avatar)
         }).catch(error=>{
-            console.log("Error retreiving user details",error)
+            console.log(error.response.data.error.message)
         })
     }
     
@@ -67,22 +68,20 @@ function Assignement_12(){
         const isChecked = event.target.checked;
         setCheck(isChecked);
     }
-
-    function loginType(){
-        console.log(check)
-        if(check){
-            localStorage.setItem("token",token);
-        }else{
-            sessionStorage.setItem("token",token);
-        }
-        submit()
+    function clear(){
+        setToken("")
+        localStorage.removeItem("token")
+        sessionStorage.removeItem("token")
+        setName("")
+        setDescription("")
+        setAvatar("")
     }
 
     return(
         <div>
             <h1>Assignment 12</h1>
             {!token && <div className="userInput">
-                <form onSubmit={loginType}>
+                <form onSubmit={submit}>
                     <div className="">
                         <div className="">
                         <label>Enter your email: </label>
@@ -103,6 +102,7 @@ function Assignement_12(){
                 {avatar && <img src={avatar} className="avatar"></img>}
                 {name && <h3>Hellow {name}</h3>}
                 {description && <p>{description}</p>}
+                <button onClick={clear} className="fbutton">Clear Token</button>
             </div>}
         </div>
     )
