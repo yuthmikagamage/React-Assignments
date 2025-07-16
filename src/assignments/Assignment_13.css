@@ -31,3 +31,6 @@ label {
   background-color: #f5f5dc;
   color: black;
 }
+.error {
+  color: rgb(218, 22, 22);
+}
