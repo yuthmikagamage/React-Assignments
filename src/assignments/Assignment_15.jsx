@@ -1,12 +1,15 @@
 /* eslint-disable react-refresh/only-export-components */
 import { useEffect, useState } from "react"
-import "./Assignment_13.css"
+import "./Assignment_15.css"
 import axios from "axios"
 
 function ProfileScreen({token, setToken}){
     const [name,setName] = useState("")
     const [description, setDescription] = useState("")
     const [avatar, setAvatar] = useState()
+    const [editData,setEditData] = useState(false)
+    const [editResponce, setEditResponce] = useState("")
+    const [newAvatar,setNewAvatar] = useState(null)
 
     axios.get("https://auth.dnjs.lk/api/user",{
         headers:{
@@ -33,14 +36,51 @@ function ProfileScreen({token, setToken}){
             setToken("")
         })
     }
+
+    function ChangeAvatar(){
+        if(!newAvatar){
+            setEditResponce("Please Select Image to Continue!")
+            return
+        }
+        const formData = new FormData()
+        formData.append("avatar",newAvatar)
+        axios.post("https://auth.dnjs.lk/api/avatar",formData,{
+            headers:{
+                Authorization:`Bearer ${token}`,
+                "Content-Type":"multipart/form-data"
+            }
+        }).then(responce=>{
+            console.log(responce)
+            setEditResponce("Avatar Changed Suessfully")
+            setEditData(false)
+            setNewAvatar(null)
+        }).catch(error=>{
+            console.log(error)
+            setEditResponce("Error: " + error.response?.data?.error?.messages)
+        })
+    }
+
     return(
-        <div>
-            <div className="displayUserData">
+        <div className="profilepage">
+            {name && description &&<div className="container">
+             <div className="displayUserData">
                 <img src={avatar} className="avatar"></img>
                 <h3>{name}</h3>
                 <h3>{description}</h3>
-                {name && <button className="fbutton" onClick={logOut}>Log Out</button>}
+                <div className="buttons">
+                    <button className="fbutton" onClick={logOut}>Log Out</button>
+                    <button className="fbutton" onClick={()=>setEditData(true)}>Change Avatar</button>
+                </div>
             </div>
+                        
+            <div className="editDetails">
+                <h3>Change Avatar</h3>
+                <input type="file" accept="image/*" disabled={!editData} onChange={event=>setNewAvatar(event.target.files[0])}></input>
+                <button onClick={()=>setEditData(false)} disabled={!editData}>Close</button>
+                <button disabled={!editData} onClick={ChangeAvatar}>Confirm and Change</button>
+                <h3>{editResponce}</h3>
+            </div>
+            </div>}
         </div>
     )
 }
@@ -89,7 +129,7 @@ function LogingScreen({ setToken }){
     )
 }
 
-function Assignement_13(){
+function Assignement_15(){
     const [token, setToken] = useState("")
 
     useEffect(()=>{
@@ -99,12 +139,12 @@ function Assignement_13(){
     
     return(
         <div>
-            <h1>Assignment 13</h1>
-            {token && <ProfileScreen token={token} setToken={setToken}/>}
+            <h1>Assignment 15</h1>
+            {token && <ProfileScreen token={token} setToken={setToken} />}
             {!token && <LogingScreen setToken={setToken}/>}
         </div>
     )
 }
 
-export default Assignement_13
+export default Assignement_15
 
