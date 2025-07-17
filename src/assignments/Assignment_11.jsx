@@ -56,7 +56,8 @@ function Assignement_11(){
     return(
         <div>
             <h1>Assignment 11</h1>
-            <div className="userInput">
+            <div className="login-screen-11">
+            <div className="userInputs">
                 <form onSubmit={submit}>
                     <label>Enter your email: </label>
                     <input type="text" value={email} onChange={event=>setEmail(event.target.value)}></input>
@@ -65,12 +66,14 @@ function Assignement_11(){
                     <button type="submit" className="fbutton">Submit</button>
                 </form>
             </div>
+            </div>
             <h3>{displayResponce}</h3>
             {(name || description) && <div className="displayUserDetails">
                 {avatar && <img src={avatar} className="avatar"></img>}
                 {name && <h3>Hellow {name}</h3>}
                 {description && <p>{description}</p>}
             </div>}
+            
 
         </div>
     )

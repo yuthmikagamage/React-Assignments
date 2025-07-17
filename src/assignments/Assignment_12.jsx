@@ -80,10 +80,12 @@ function Assignement_12(){
     return(
         <div>
             <h1>Assignment 12</h1>
-            {!token && <div className="userInput">
+            {!token && <div className="login-screen-11">
+            
+            <div className="userInputs">
                 <form onSubmit={submit}>
-                    <div className="">
-                        <div className="">
+                    <div className="upper">
+                        <div className="container">
                         <label>Enter your email: </label>
                         <input type="text" value={email} onChange={event=>setEmail(event.target.value)}></input>
                         <label>Enter your password: </label>
@@ -96,6 +98,7 @@ function Assignement_12(){
                         <button type="submit" className="fbutton">Submit</button>
                     </div>
                 </form>
+            </div>
             </div>}
             <h3>{displayResponce}</h3>
             {(token) && <div className="displayUserDetails">

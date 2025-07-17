@@ -93,8 +93,10 @@ function Assignement_13(){
     const [token, setToken] = useState("")
 
     useEffect(()=>{
-        const token = sessionStorage.getItem("token") || localStorage.getItem("token")
-        setToken(token)
+        const savedToken = sessionStorage.getItem("token") || localStorage.getItem("token")
+        if(savedToken){
+            setToken(savedToken)
+        }
     },[])
     
     return(

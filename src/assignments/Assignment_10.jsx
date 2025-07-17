@@ -25,7 +25,8 @@ function Assignment_10(){
     return(
         <div>
             <h1>Assignment 10</h1>
-            <div className="userInput">
+            <div className="login-screen-11">
+            <div className="userInputs">
                 <form onSubmit={submit}>
                     <label>Enter your email: </label>
                     <input type="text" value={email} onChange={event=>setEmail(event.target.value)}></input>
@@ -35,6 +36,7 @@ function Assignment_10(){
                 </form>
             </div>
             <h3>{displayResponce}</h3>
+            </div>
         </div>
     )
 }

@@ -59,7 +59,7 @@ function ProfileScreen({token, setToken}){
 
     return(
         <div className="profilepage">
-            {name && description &&<div className="container">
+            {name && description &&<div className="prof-container">
              <div className="displayUserData">
                 <img src={avatar} className="avatar"></img>
                 <h3>{name}</h3>
@@ -131,8 +131,10 @@ function Assignement_14(){
     const [token, setToken] = useState("")
 
     useEffect(()=>{
-        const token = sessionStorage.getItem("token") || localStorage.getItem("token")
-        setToken(token)
+        const savedToken = sessionStorage.getItem("token") || localStorage.getItem("token")
+        if(savedToken){
+            setToken(savedToken)
+        }
     },[])
     
     return(

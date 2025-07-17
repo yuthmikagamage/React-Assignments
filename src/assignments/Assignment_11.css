@@ -17,3 +17,109 @@ p {
   margin-left: auto;
   margin-right: auto;
 }
+.login-screen-11 input,
+button,
+label,
+form {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  float: none;
+}
+.login-screen-11 {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid #333;
+}
+
+.login-screen-11 .userInputs {
+  width: 100%;
+  background-color: #1a1a1a;
+}
+
+.login-screen-11 form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #1a1a1a;
+}
+.login-screen-11 h3 {
+  background-color: #1a1a1a;
+}
+
+.login-screen-11 label {
+  color: #e0e0e0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: block;
+  background-color: #1a1a1a;
+}
+
+.login-screen-11 input[type="text"],
+.login-screen-11 input[type="password"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #2a2a2a;
+  border: 2px solid #404040;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.login-screen-11 input[type="text"]:focus,
+.login-screen-11 input[type="password"]:focus {
+  outline: none;
+  border-color: #4a9eff;
+  background-color: #333333;
+  box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.1);
+}
+
+.login-screen-11 input[type="text"]:hover,
+.login-screen-11 input[type="password"]:hover {
+  border-color: #555555;
+}
+
+.login-screen-11 .fbutton {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  background-color: #4a9eff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.login-screen-11 .fbutton:hover {
+  background-color: #3d8ce6;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
+}
+
+.login-screen-11 .fbutton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(74, 158, 255, 0.2);
+}
+
+.login-screen-11 .fbutton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.4);
+}
+
+.login-screen-11 input::placeholder {
+  color: #888888;
+}
+
+.login-screen-11 form > * {
+  margin-bottom: 0;
+}

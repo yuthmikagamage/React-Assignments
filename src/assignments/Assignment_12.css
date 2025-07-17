@@ -9,3 +9,26 @@
   display: block;
   margin: 20px auto 0;
 }
+.login-screen-12 .userInput .container input,
+form,
+label,
+button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  float: none;
+}
+.login-screen-12 .userInput .container {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  float: none;
+}
+.login-screen-12 .userInput .container form {
+  background-color: rgb(168, 168, 179);
+}
+.upper,
+.container,
+.checkSubmit {
+  background-color: #1a1a1a;
+}
