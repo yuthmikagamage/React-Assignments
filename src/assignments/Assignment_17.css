@@ -1,0 +1,15 @@
+.colour-input {
+  width: 100px;
+  height: 50px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.mixColourBox {
+  width: 200px;
+  height: 200px;
+}
+.gradientBox {
+  width: 200px;
+  height: 200px;
+}
