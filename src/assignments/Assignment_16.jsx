@@ -33,18 +33,18 @@ function LogingScreen({ setToken }){
 
     return(
         <div className="logn-wrapper">
-        <div className="userInput">
-            <div className="inputBox">
-            <input type="text" placeholder="Your Email" value={email} onChange={event=>setEmail(event.target.value)}></input>
-            <input type="password" placeholder="Your Password" value={password} onChange={event=>setPassword(event.target.value)}></input>
+            <div className="userInput">
+                <div className="inputBox">
+                <input type="text" placeholder="Your Email" value={email} onChange={event=>setEmail(event.target.value)}></input>
+                <input type="password" placeholder="Your Password" value={password} onChange={event=>setPassword(event.target.value)}></input>
+                </div>
+                <div className="checkbox-container">
+                    <label>Keep me sign in</label>
+                    <input type="checkbox" onChange={event=>setCheck(event.target.checked)}></input>
+                </div>
+                <button className="fbutton" onClick={submit}>Log In</button>
+                <h3 className="error">{error}</h3>
             </div>
-            <div className="checkbox-container">
-                <label>Keep me sign in</label>
-                <input type="checkbox" onChange={event=>setCheck(event.target.checked)}></input>
-            </div>
-            <button className="fbutton" onClick={submit}>Log In</button>
-            <h3 className="error">{error}</h3>
-        </div>
         </div>
     )
 }

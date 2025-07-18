@@ -89,3 +89,6 @@ h3 {
   padding: 0;
   min-height: 0;
 }
+.logn-wrapper .userInput .error h3 {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
