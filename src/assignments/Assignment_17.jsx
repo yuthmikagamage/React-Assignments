@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import "./Assignment_17.css"
+
 function Assignment_17(){
     const [firstColour, setFirstColour] = useState("")
     const [secondColour, setSecondColour] = useState("")
@@ -42,19 +43,22 @@ function Assignment_17(){
     }
 
     return(
-        <div>
+        <div className="assin17-container">
             <h1>Assignment 17</h1>
-            <div className="UserColourInput">
+            <div className="assign-17">
+                <div className="UserColourInput">
                 <label>First Colour</label>
                 <input type="color" className="colour-input" value={firstColour} onChange={event=>setFirstColour(event.target.value)}></input>
                 <label>Second Colour</label>
                 <input type="color" className="colour-input" value={secondColour} onChange={event=>setSecondColour(event.target.value)}></input>
-            </div>
-            <h3>{error}</h3>
-            <h3>{mixedColour}</h3>
-            <div className="mixColourBox" style={{backgroundColor: mixedColour}}></div>
-            <div className="gradientBox" style={{background: `linear-gradient(to right, ${firstColour}, ${mixedColour}, ${secondColour})`,}}>
-
+                </div>
+                <h4>{error}</h4>
+                {mixedColour && <h4>Mixed Colour is: {mixedColour}</h4>}
+                {mixedColour !== "" && <div className="boxes">
+                <div className="mixColourBox" style={{backgroundColor: mixedColour}}></div>
+                <div className="gradientBox" style={{background: `linear-gradient(to right, ${firstColour}, ${mixedColour}, ${secondColour})`,}}>
+                </div>
+                </div>}
             </div>
         </div>
     )
