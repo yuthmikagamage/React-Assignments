@@ -1,0 +1,90 @@
+.gameContainer {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gameContainer h2 {
+  color: white;
+  margin: 15px 0;
+  font-size: 1.5em;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gameContainer h3 {
+  color: white;
+  margin: 10px 0;
+  font-size: 1.2em;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.gameContainer .colorButtons {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.gameContainer .colorButtons button {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  min-width: 100px;
+}
+
+.gameContainer .colorButtons button:first-child {
+  background-color: #ff4444;
+  color: white;
+}
+
+.gameContainer .colorButtons button:first-child:hover {
+  background-color: #cc0000;
+  transform: translateY(-2px);
+}
+
+.gameContainer .colorButtons button:last-child {
+  background-color: #4444ff;
+  color: white;
+}
+
+.gameContainer .colorButtons button:last-child:hover {
+  background-color: #0000cc;
+  transform: translateY(-2px);
+}
+
+.gameContainer ul {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.gameContainer ul li {
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  width: 80px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #383858 0%, #7a839c 100%);
+}
