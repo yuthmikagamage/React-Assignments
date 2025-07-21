@@ -1,0 +1,67 @@
+.assignment-19 {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.assignment-19 h1 {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  text-align: center;
+  color: #333;
+}
+
+.assignment-19 .questons {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.assignment-19 h2 {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #ffffff;
+  font-size: 1.3em;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 30px;
+}
+
+.assignment-19 ul {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.assignment-19 li {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 15px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+  font-size: 1em;
+}
+
+.assignment-19 li:hover {
+  background: linear-gradient(135deg, #383858 0%, #7a839c 100%);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.assignment-19 .endScreen {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 50px 0px 50px 0px;
+  display: block;
+  align-items: center;
+  border-radius: 10px;
+}
+.assignment-19 .endScreen h2 {
+  color: white;
+  text-align: center;
+}
+.questons {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
