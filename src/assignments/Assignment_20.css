@@ -74,3 +74,32 @@
 .endScreen button:hover {
   background: linear-gradient(135deg, #383858 0%, #7a839c 100%);
 }
+.nextPrevButtons {
+  display: flex;
+  justify-content: space-between;
+}
+.nextPrevButtons button {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+  padding: 10px 50px 10px 50px;
+  border-radius: 10px;
+  border: none;
+}
+.nextPrevButtons button:hover {
+  background: linear-gradient(135deg, #383858 0%, #7a839c 100%);
+}
+.nextPrevButtons button:disabled {
+  background: linear-gradient(135deg, #383858 0%, #7a839c 100%);
+  cursor: not-allowed;
+}
+.reviewSection h2 {
+  padding-top: 20px;
+  text-align: center;
+}
+.reviewSection {
+  margin-top: 30px;
+}
+.reviewSection li {
+  margin-right: 10px;
+  margin-left: 10px;
+}
