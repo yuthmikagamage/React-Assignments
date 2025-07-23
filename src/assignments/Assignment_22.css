@@ -1,0 +1,55 @@
+.assign-22 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding-bottom: 20px;
+  color: white;
+}
+
+.assign-22 .userin {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.assign-22 button {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #444493 0%, #264cb3 100%);
+  border-radius: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.assign-22 button:hover {
+  background: linear-gradient(135deg, #383858 0%, #7a839c 100%);
+}
+
+.assign-22 img {
+  width: 200px;
+  margin: 30px auto;
+  display: block;
+}
+
+.assign-22 .filterValueIn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.assign-22 input[type="range"] {
+  width: 300px;
+  accent-color: #ffffff;
+}
+.assign-22 .userInputs {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+.filterValueIn p {
+  color: white;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
