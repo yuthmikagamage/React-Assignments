@@ -1,3 +1,19 @@
+.assign-21 {
+  padding: 20px;
+}
+
+.assign-21 button {
+  padding: 8px 16px;
+  margin-left: 10px;
+}
+
 .assign-21 img {
-  height: 500px;
+  max-width: 300px;
+  border: 1px solid #ccc;
+}
+
+.assign-21 canvas {
+  max-width: 300px;
+  border: 2px solid #000;
+  cursor: crosshair;
 }
