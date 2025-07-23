@@ -56,7 +56,7 @@ function Assignment_21() {
     <div>
       <h1>Assignment 21</h1>
       <div className="assign-21">
-        <div>
+        <div className="userin">
           <input
             type="file"
             accept="image/*"
@@ -66,8 +66,8 @@ function Assignment_21() {
         </div>
 
         {imgUrl && (
-          <div>
-            <div>
+          <div className="color-images">
+            <div className="original-img">
               <h3>Original Image:</h3>
               <img
                 ref={imageRef}
@@ -77,7 +77,7 @@ function Assignment_21() {
               />
             </div>
 
-            <div>
+            <div className="canvas-img">
               <h3>Canvas (Click to pick color):</h3>
               <canvas ref={canvasRef} onClick={handleCanvasClick} />
             </div>
@@ -85,16 +85,27 @@ function Assignment_21() {
         )}
 
         {selectedColor.rgb && (
-          <div>
+          <div className="color-output">
             <h3>Selected Color:</h3>
-            <div>
+            <div
+              style={{
+                backgroundColor: selectedColor.hex,
+                border: "1px solid #000",
+              }}
+            >
               <div />
-              <div>
-                <p>
-                  <strong>RGB:</strong> {selectedColor.rgb}
+              <div style={{ backgroundColor: selectedColor.hex }}>
+                <p style={{ backgroundColor: selectedColor.hex }}>
+                  <strong style={{ backgroundColor: selectedColor.hex }}>
+                    RGB:
+                  </strong>{" "}
+                  {selectedColor.rgb}
                 </p>
-                <p>
-                  <strong>Hex:</strong> {selectedColor.hex}
+                <p style={{ backgroundColor: selectedColor.hex }}>
+                  <strong style={{ backgroundColor: selectedColor.hex }}>
+                    Hex:
+                  </strong>{" "}
+                  {selectedColor.hex}
                 </p>
               </div>
             </div>

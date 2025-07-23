@@ -1,10 +1,22 @@
 .assign-21 {
-  padding: 20px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+.assign-21 .userin {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding-top: 20px;
+  border-radius: 10px;
+  padding-bottom: 20px;
 }
 
 .assign-21 button {
   padding: 8px 16px;
   margin-left: 10px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 10px;
+  color: white;
+}
+.assign-21 button:hover {
+  background: linear-gradient(135deg, #383858 0%, #7a839c 100%);
 }
 
 .assign-21 img {
@@ -16,4 +28,18 @@
   max-width: 300px;
   border: 2px solid #000;
   cursor: crosshair;
+}
+.color-images {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+.color-images h3 {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+.original-img {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+.canvas-img {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 }
