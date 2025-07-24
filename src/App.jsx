@@ -29,6 +29,10 @@ function App() {
         <Link to="/ASG_21">Assignment 21</Link>
         <Link to="/ASG_22">Assignment 22</Link>
       </div>
+      <h1>React Tasks</h1>
+      <div className="link-grid">
+        <Link to="/TSK_1">Task 1</Link>
+      </div>
     </div>
   );
 }
