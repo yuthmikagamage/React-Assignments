@@ -32,6 +32,7 @@ function App() {
       <h1>React Tasks</h1>
       <div className="link-grid">
         <Link to="/TSK_1">Task 1</Link>
+        <Link to="/TSK_2">Task 2</Link>
       </div>
     </div>
   );

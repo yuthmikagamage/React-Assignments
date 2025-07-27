@@ -14,6 +14,16 @@ function Task_1() {
     setPosition((prev) => [...prev, newPosition]);
   }
 
+  // function mouseMove(event) {
+  //   const rect = event.currentTarget.getBoundingClientRect();
+  //   const newPosition = {
+  //     x: event.clientX - rect.left,
+  //     y: event.clientY - rect.top,
+  //     time: Date.now(),
+  //   };
+  //   setPosition((prev) => [...prev, newPosition]);
+  // }
+
   useEffect(() => {
     const interval = setInterval(() => {
       const now = Date.now();
