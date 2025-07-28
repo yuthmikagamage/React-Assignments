@@ -1,0 +1,33 @@
+.task2 img {
+  height: 400px;
+}
+.task2 input {
+  height: 500px;
+  width: 600px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+}
+.task2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.fileinputtsk2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.task2 .output button {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+  border: none;
+}
+.task2 .output button:hover {
+  background: linear-gradient(135deg, #383858 0%, #7a839c 100%);
+}
