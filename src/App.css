@@ -7,18 +7,18 @@ ul {
 a {
   display: block;
   text-decoration: none;
-  color: #2980b9;
+  color: white;
   padding: 15px 20px;
   font-size: 1.2rem;
   font-weight: 500;
   border-radius: 8px;
-  background-color: antiquewhite;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   text-align: center;
 }
 
 a:hover {
-  background-color: #ecfaff;
-  color: #1a5276;
+  background: linear-gradient(135deg, #383858 0%, #7a839c 100%);
+  color: white;
 }
 .link-grid {
   display: grid;
