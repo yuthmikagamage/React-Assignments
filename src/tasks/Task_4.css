@@ -1,0 +1,25 @@
+.task4 .container {
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  text-align: center;
+  align-items: center;
+}
+.task4 .container .context-menu {
+  width: 150px;
+  text-align: center;
+}
+.task4 .container .context-menu ul {
+  border-radius: 10px;
+}
+.task4 .container .context-menu li {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.task4 .container .context-menu li:hover {
+  background: linear-gradient(135deg, #383858 0%, #7a839c 100%);
+}
