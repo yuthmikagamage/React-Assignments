@@ -26,11 +26,11 @@ function Task_4() {
     let y = event.pageY;
 
     if (x + menuWidth > windowWidth) {
-      x = windowWidth - menuWidth;
+      x = windowWidth - menuWidth - 10;
     }
 
     if (y + menuHeight > windowHeight) {
-      y = windowHeight - menuHeight;
+      y = windowHeight - menuHeight - 10;
     }
     setPosition({ x, y });
     setVisibility(true);
