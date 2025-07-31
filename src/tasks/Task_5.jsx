@@ -65,7 +65,7 @@ function Task_5() {
       <div ref={containerRef} className="scroll-video-container">
         <div className="video-background">
           <video ref={videoRef} className="background-video" muted playsInline>
-            <source src="src/assets/scrollable-video.mp4" type="video/mp4" />
+            <source src="./scrollable-video.mp4" type="video/mp4" />
           </video>
 
           <div className="text-overlay">

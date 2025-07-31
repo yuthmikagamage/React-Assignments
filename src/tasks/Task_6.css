@@ -1,0 +1,55 @@
+.task6 img {
+  height: 400px;
+  width: 300px;
+}
+.task6 {
+  margin: 0px 50px 0px 50px;
+}
+.task6 canvas {
+  height: 400px;
+  width: 300px;
+}
+.task6 .imageDisplay {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0px 50px 0px;
+}
+.task6 label {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.task6 .userinput {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 20px 0px 20px 0px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.task6 .userinput button {
+  margin: 0;
+  padding: 0;
+}
+.task6 .userinput button {
+  padding: 10px 20px 10px 20px;
+  color: white;
+  background: linear-gradient(135deg, #383858 0%, #6b6d74 100%);
+  border-radius: 10px;
+  border: none;
+  margin-left: 10px;
+}
+.task6 .userinput button:hover {
+  background: linear-gradient(135deg, #08082b 0%, #7a839c 100%);
+}
+.task6 .changePixel input {
+  width: 400px;
+  color: white;
+}
+.task6 .changePixel {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 20px 0px 20px 0px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
