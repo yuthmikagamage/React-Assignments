@@ -1,3 +1,9 @@
+.task5 {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
 .task5 .scroll-video-container {
   position: relative;
   margin: 0;
@@ -35,9 +41,9 @@
   font-size: clamp(2rem, 8vw, 5rem);
   font-weight: bold;
   margin: 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-  opacity: 0;
-  animation: fadeInUp 0.6s ease-out forwards;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  transition: all 0.3s ease;
+  opacity: 1;
 }
 
 .task5 .scroll-content {
@@ -55,19 +61,12 @@
   opacity: 0.1;
   transition: opacity 0.3s ease;
   background: transparent;
+  font-size: 2rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  font-weight: bold;
 }
 
 .task5 .content-section.active {
   opacity: 1;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
