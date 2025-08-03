@@ -36,8 +36,8 @@ function Task_7() {
           <img
             src={
               animating
-                ? "public/cursor-sprite-animation-active.gif"
-                : "public/cursor-sprite-animation-inactive.png"
+                ? "/cursor-sprite-animation-active.gif"
+                : "/cursor-sprite-animation-inactive.png"
             }
             alt="cursor"
             className="cursor-image"
