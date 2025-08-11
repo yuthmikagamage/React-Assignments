@@ -1,0 +1,43 @@
+.task10 .container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+.task10 .container .board {
+  width: 300px;
+  height: 320px;
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+}
+body {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+.board {
+  display: flex;
+  flex-direction: column;
+}
+
+.board-row {
+  display: flex;
+}
+
+.board-cell {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgb(24, 24, 100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.board-cell[value="1"] {
+  background-color: red;
+}
+.board-cell[value="0"] {
+  background-color: rgb(109, 103, 113);
+}
