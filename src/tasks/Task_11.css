@@ -1,0 +1,75 @@
+.task11 .container .board {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  background-color: grey;
+}
+.task11 .container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  margin: 0;
+  padding: 0;
+}
+.task11 {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.task11 button {
+  color: black;
+  width: 120px;
+  height: 50px;
+  margin: 10px 20px 10px 0px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #7272b2 0%, #bbbcbe 100%);
+}
+.task11 button:hover {
+  background: linear-gradient(135deg, #bbbcbe 0%, #7272b2 100%);
+  color: white;
+}
+
+.task11 .options {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+.task11 .container .board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  border-radius: 10px;
+}
+.task11 .container .board .cardWrapper {
+  background-color: white;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 11px;
+  border-radius: 10px;
+}
+.task11 .container .board .cardWrapper .card {
+  background-color: white;
+}
+.task11 .container .board .cardWrapper:hover {
+  background-color: rgb(194, 176, 176);
+  cursor: pointer;
+}
+.task11 .container .board .cardWrapper:hover .card {
+  background-color: rgb(194, 176, 176);
+}
+
+.task11 .container .board .cardWrapper[done="true"] {
+  background-color: rgb(222, 203, 77);
+}
+.task11 .container .board .cardWrapper[done="true"] .card {
+  background-color: rgb(222, 203, 77);
+}
+.task11 .container .board .cardWrapper[flipped="false"] .card {
+  display: none;
+}
