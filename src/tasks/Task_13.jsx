@@ -3,12 +3,25 @@ import "./Task_13.css";
 
 function Task_13() {
   const [currentInput, setCurrentInput] = useState("");
+  const [itemsOutput, setItemsOutput] = useState([]);
 
   function executeCommads(userInput) {
-    console.log(userInput);
-    const func = new Function("return (" + userInput + ")");
-    const result = func();
-    console.log(result);
+    try {
+      console.log(userInput);
+      const func = new Function("return (" + userInput + ")");
+      const result = func();
+      console.log(result);
+      setItemsOutput((prev) => [
+        ...prev,
+        { command: userInput, output: String(result) },
+      ]);
+    } catch (error) {
+      console.log(error.message);
+      setItemsOutput((prev) => [
+        ...prev,
+        { command: userInput, output: error.message },
+      ]);
+    }
   }
 
   function pressKeyDown(event) {
@@ -23,6 +36,14 @@ function Task_13() {
   return (
     <div className="task13">
       <div className="container">
+        <div className="outputBox">
+          {itemsOutput.map((item, index) => (
+            <div className="commandresult" key={index}>
+              <div className="command">- {item.command}</div>
+              <div className="output">{item.output}</div>
+            </div>
+          ))}
+        </div>
         <input
           type="text"
           onKeyDown={pressKeyDown}

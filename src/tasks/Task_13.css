@@ -11,6 +11,7 @@
   height: 450px;
   flex-direction: column;
   border-radius: 10px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 }
 .task13 {
   display: flex;
@@ -20,4 +21,22 @@
   padding: 0;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
+}
+.task13 .outputBox {
+  height: 390px;
+  width: 400px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  overflow-y: auto;
+}
+.task13 .command,
+.task13 .output {
+  border: 1px solid white;
+  color: white;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 4px 0px 4px 0px;
+  border-radius: 3px;
+}
+.task13 .commandresult {
+  margin-bottom: 15px;
 }
