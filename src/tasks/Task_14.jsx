@@ -36,7 +36,7 @@ function Task_14() {
       "Enter",
     ],
     ["Shift", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "Shift"],
-    ["Control", "Alt", "Meta", " ", "Meta", "Alt"],
+    ["Control", "Alt", "Command", " ", "Command", "Alt"],
   ];
 
   const [pressedKey, setPressedKey] = useState(null);
@@ -51,7 +51,7 @@ function Task_14() {
       if (key === "Tab") key = "Tab";
       if (key === "Alt") key = "Alt";
       if (key === "Control") key = "Control";
-      if (key === "Meta") key = "Meta";
+      if (key === "Command") key = "Meta";
       if (key === "CapsLock") key = "CapsLock";
       if (key === "Shift") key = "Shift";
 
@@ -86,7 +86,8 @@ function Task_14() {
     if (keyStr === "Shift" && pressedKey === "Shift") return true;
     if (keyStr === "Control" && pressedKey === "Control") return true;
     if (keyStr === "Alt" && pressedKey === "Alt") return true;
-    if (keyStr === "Meta" && pressedKey === "Meta") return true;
+    if (keyStr === "Command" && pressedKey === "Meta") return true;
+    if (keyStr === "Command" && pressedKey === "Meta") return true;
 
     return keyStr.toLowerCase() === pressedKey.toLowerCase();
   };
