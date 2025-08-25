@@ -1,0 +1,109 @@
+.task16 .listing {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 30px;
+  font-weight: bolder;
+  border-radius: 10px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  opacity: 0.75;
+}
+.task16 .listing:hover {
+  opacity: 1;
+}
+.task16 .container {
+  width: 700px;
+  height: 500px;
+  display: flex;
+  background: linear-gradient(135deg, #282877 20%, #344985 100%);
+  padding: 10px;
+  border-radius: 10px;
+}
+.task16 {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+.task16 .container .selectedItem {
+  width: 600px;
+  height: 500px;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+}
+.task16 .container .allItems {
+  margin-right: 10px;
+  background: linear-gradient(135deg, #282877 20%, #344985 100%);
+  height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.task16 .container .allItems button {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #01011b 20%, #6883cc 100%);
+  color: white;
+  font-size: 30px;
+  border: none;
+  opacity: 0.5;
+}
+.task16 .container .allItems button:hover {
+  opacity: 1;
+}
+.task16 .container .editingItem {
+  width: 580px;
+  height: 500px;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  flex-direction: column;
+}
+.task16 .container .editingItem .editInput {
+  background: none;
+  border: none;
+  width: 500px;
+  height: 480px;
+  margin: 0;
+  color: white;
+  font-size: 30px;
+}
+.task16 .container .editingItem .editInput:focus {
+  outline: none;
+  border: none;
+}
+.task16 .container .editingItem .otherInput {
+  display: flex;
+  margin-bottom: 20px;
+}
+.task16 .container .editingItem .otherInput button {
+  background-color: rgb(79, 132, 27);
+  color: white;
+  padding: 10px 20px 10px 20px;
+  border-radius: 10px;
+  margin-left: 20px;
+}
+.task16 .container .editingItem .otherInput button:disabled {
+  background-color: rgb(192, 209, 175);
+}
+.task16 .container .editingItem .otherInput select {
+  background-color: #1a1a2e;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
