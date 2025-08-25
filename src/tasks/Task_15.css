@@ -3,8 +3,10 @@
   height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 }
+
 .task15 .container {
   width: 400px;
   height: 400px;
@@ -15,11 +17,27 @@
   border-radius: 10px;
   flex-direction: column;
 }
+
 .task15 .container .hint {
   color: black;
   background: linear-gradient(135deg, #b4b4c9 0%, #8898c5 100%);
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   font-style: italic;
+  font-size: 16px;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.task15 .container .puzzle {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #333;
+  border-radius: 5px;
+}
+
+.puzzle .row {
+  display: flex;
 }
 
 .cropImg {
@@ -30,6 +48,13 @@
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
-.task15 .container .puzzle {
-  display: flex;
+
+.cropImg:hover {
+  border-color: #999;
+}
+
+.cropImg.empty {
+  background-image: none;
+  background-color: #333;
+  opacity: 0.3;
 }
