@@ -85,7 +85,6 @@ function Task_15() {
   const movePiece = (direction) => {
     const newPuzzle = puzzle.map((row) => [...row]);
     let newEmptyPos = { ...emptyPos };
-
     let targetRow = emptyPos.row;
     let targetCol = emptyPos.col;
 
@@ -107,9 +106,7 @@ function Task_15() {
     if (targetRow >= 0 && targetRow < 3 && targetCol >= 0 && targetCol < 3) {
       newPuzzle[emptyPos.row][emptyPos.col] = newPuzzle[targetRow][targetCol];
       newPuzzle[targetRow][targetCol] = null;
-
       newEmptyPos = { row: targetRow, col: targetCol };
-
       setPuzzle(newPuzzle);
       setEmptyPos(newEmptyPos);
     }
@@ -137,6 +134,9 @@ function Task_15() {
             </div>
           ))}
         </div>
+        <button className="restart-btn" onClick={initializePuzzle}>
+          Restart
+        </button>
       </div>
     </div>
   );

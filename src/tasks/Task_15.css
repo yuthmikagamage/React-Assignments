@@ -9,13 +9,14 @@
 
 .task15 .container {
   width: 400px;
-  height: 400px;
+  height: 450px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #b4b4c9 0%, #8898c5 100%);
   border-radius: 10px;
   flex-direction: column;
+  position: relative;
 }
 
 .task15 .container .hint {
@@ -57,4 +58,20 @@
   background-image: none;
   background-color: #333;
   opacity: 0.3;
+}
+
+.restart-btn {
+  background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.restart-btn:hover {
+  background: linear-gradient(135deg, #45a049 0%, #4caf50 100%);
 }
