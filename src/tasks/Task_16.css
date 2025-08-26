@@ -38,6 +38,8 @@
   display: flex;
   justify-content: center;
   font-size: 50px;
+  flex-direction: column;
+  position: relative;
 }
 .task16 .container .allItems {
   margin-right: 10px;
@@ -59,51 +61,195 @@
 .task16 .container .allItems button:hover {
   opacity: 1;
 }
-.task16 .container .editingItem {
-  width: 580px;
-  height: 500px;
-  border-radius: 10px;
-  color: white;
-  display: flex;
-  justify-content: center;
-  font-size: 50px;
-  flex-direction: column;
+.task16 .container .selectedItem .deleteSlide {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #ffffff;
+  background: transparent;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 2px solid rgb(27, 60, 138);
+  font-size: 14px;
 }
-.task16 .container .editingItem .editInput {
+.task16 .container .selectedItem .playSlide {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #ffffff;
+  background: transparent;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 2px solid rgb(27, 60, 138);
+  font-size: 14px;
+}
+
+.task16 .container .selectedItem button:hover {
+  background: rgb(135, 135, 123);
+}
+.task16 .container .selectedItem .itemTextInput {
   background: none;
   border: none;
-  width: 500px;
-  height: 480px;
-  margin: 0;
   color: white;
-  font-size: 30px;
+  width: 500px;
+  text-align: center;
+  font-size: 35px;
+  font-weight: bold;
 }
-.task16 .container .editingItem .editInput:focus {
+.task16 .container .selectedItem .itemTextInput:focus {
   outline: none;
   border: none;
 }
-.task16 .container .editingItem .otherInput {
-  display: flex;
-  margin-bottom: 20px;
-}
-.task16 .container .editingItem .otherInput button {
-  background-color: rgb(79, 132, 27);
-  color: white;
-  padding: 10px 20px 10px 20px;
-  border-radius: 10px;
-  margin-left: 20px;
-}
-.task16 .container .editingItem .otherInput button:disabled {
-  background-color: rgb(192, 209, 175);
-}
-.task16 .container .editingItem .otherInput select {
+.task16 .container .selectedItem .colorSelect {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
   background-color: #1a1a2e;
   color: white;
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
   font-size: 16px;
   appearance: none;
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: center;
+  background: transparent;
+  border: 2px solid rgb(27, 60, 138);
+}
+.task16 .container .selectedItem .animationSelect {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: transparent;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+  font-size: 16px;
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  border: 2px solid rgb(27, 60, 138);
+}
+.selectedSlideshowItem {
+  height: 100vh;
+  width: 100vw;
+  background: #344985;
+  position: relative;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.selectedSlideshowItem .closeButton {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  border-radius: 50px;
+  padding: 10px 10px 10px 10px;
+  background: rgb(212, 17, 17);
+  color: white;
+  font-weight: bolder;
+  border: none;
+  opacity: 0.85;
+}
+.selectedSlideshowItem .closeButton:hover,
+.selectedSlideshowItem .nextButton:hover {
+  opacity: 1;
+}
+.selectedSlideshowItem .nextButton {
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
+  background: rgb(1, 135, 77);
+  color: white;
+  padding: 5px 15px 5px 15px;
+  border-radius: 5px;
+  border: none;
+  opacity: 0.85;
+}
+
+.instant-animation {
+  animation: instant 0.1s ease-in-out;
+}
+
+.fade-animation {
+  animation: fade 1s ease-in-out;
+}
+
+.up-animation {
+  animation: slideUp 1s ease-out;
+}
+
+.down-animation {
+  animation: slideDown 1s ease-out;
+}
+
+.blur-animation {
+  animation: blur 1.2s ease-in-out;
+}
+
+.rotate-animation {
+  animation: rotate 1.5s ease-in-out;
+}
+@keyframes instant {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  0% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes blur {
+  0% {
+    filter: blur(20px);
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-180deg) scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
 }
