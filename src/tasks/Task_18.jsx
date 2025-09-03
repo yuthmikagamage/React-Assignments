@@ -3,6 +3,24 @@ import "./Task_18.css";
 function Task_18() {
   const canvasRef = useRef();
   const movingRef = useRef(false);
+  const colors = [
+    "red",
+    "green",
+    "blue",
+    "black",
+    "pink",
+    "brown",
+    "orange",
+    "purple",
+    "gray",
+    "coral",
+    "indigo",
+    "turquoise",
+    "khaki",
+    "orchid",
+    "slateblue",
+    "gold",
+  ];
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -21,9 +39,9 @@ function Task_18() {
   }
   function handleMouseMove() {
     if (movingRef.current) {
-      console.log("Mouse Moving");
+      console.log("Mouse Moving with click");
     } else {
-      console.log("Error");
+      console.log("Mouse Moving without Clicking");
     }
   }
   return (
@@ -35,6 +53,16 @@ function Task_18() {
           onMouseMove={() => handleMouseMove()}
           onMouseUp={() => handleMouseUp()}
         ></canvas>
+        <div className="bottom">
+          {colors.map((color, index) => (
+            <button
+              style={{ backgroundColor: color }}
+              className="colorSelect"
+              key={index}
+            ></button>
+          ))}
+        </div>
+        <input type="range" className="rangeSelect"></input>
       </div>
     </div>
   );
