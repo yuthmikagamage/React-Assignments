@@ -47,6 +47,8 @@ function App() {
         <Link to="/TSK_14">Task 14</Link>
         <Link to="/TSK_15">Task 15</Link>
         <Link to="/TSK_16">Task 16</Link>
+        <Link to="/TSK_17">Task 17</Link>
+        <Link to="/TSK_18">Task 18</Link>
       </div>
     </div>
   );

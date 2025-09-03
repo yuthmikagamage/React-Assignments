@@ -1,0 +1,21 @@
+.task18 {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  display: flex;
+  justify-content: center;
+}
+.task18 .container {
+  width: 600px;
+  height: 600px;
+  background: linear-gradient(135deg, #282877 20%, #344985 100%);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.task18 .container canvas {
+  margin-top: 15px;
+  width: 550px;
+  height: 500px;
+  border-radius: 5px;
+}
