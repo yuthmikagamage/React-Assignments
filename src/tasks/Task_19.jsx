@@ -50,7 +50,6 @@ function Task_19() {
             nearest = {
               district: district,
               location: locationName,
-              label: location.labels.si || locationName,
               distance: distance.toFixed(2),
               latitude: lat,
               longitude: lon,
@@ -117,9 +116,6 @@ function Task_19() {
                 </p>
                 <p>
                   <strong>Location:</strong> {nearestLocation.location}
-                </p>
-                <p>
-                  <strong>Label (Sinhala):</strong> {nearestLocation.label}
                 </p>
                 <p>
                   <strong>Distance:</strong> {nearestLocation.distance} km
