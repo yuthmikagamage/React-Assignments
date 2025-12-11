@@ -1,0 +1,21 @@
+.task20 button {
+  color: white;
+  border: none;
+  background-color: rgb(17, 47, 102);
+  padding: 10px 20px 10px 20px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+.task20 button:hover {
+  background-color: rgb(11, 37, 85);
+  color: rgb(211, 217, 226);
+}
+.task20 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.task20 h2 {
+  color: white;
+}
