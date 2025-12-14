@@ -44,6 +44,7 @@ import Task_17 from "./tasks/Task_17.jsx";
 import Task_18 from "./tasks/Task_18.jsx";
 import Task_19 from "./tasks/Task_19.jsx";
 import Task_20 from "./tasks/Task_20.jsx";
+import Task_21 from "./tasks/Task_21.jsx";
 
 createRoot(document.getElementById("root")).render(
   <HashRouter>
@@ -91,6 +92,7 @@ createRoot(document.getElementById("root")).render(
       <Route path="/TSK_18" element={<Task_18></Task_18>}></Route>
       <Route path="/TSK_19" element={<Task_19></Task_19>}></Route>
       <Route path="/TSK_20" element={<Task_20></Task_20>}></Route>
+      <Route path="/TSK_21" element={<Task_21></Task_21>}></Route>
     </Routes>
   </HashRouter>
 );
