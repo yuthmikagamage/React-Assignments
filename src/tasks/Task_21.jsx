@@ -27,7 +27,7 @@ function Task_21() {
 
     const interval = setInterval(() => {
       setBallY((prev) => {
-        if (prev >= 270) {
+        if (prev >= 135 && prev <= 140) {
           setIsAnimating(false);
           setTimeout(() => {
             setBallY(0);
@@ -42,10 +42,19 @@ function Task_21() {
     return () => clearInterval(interval);
   }, [isAnimating]);
 
+  const lineX = Math.max(-125, Math.min(125, orientations.gamma * 2));
+
   return (
     <div className="task21">
       {orientations.gamma !== 0 ? (
         <div className="container">
+          <div
+            className="center-line"
+            style={{
+              transform: `translateX(${lineX}px)`,
+            }}
+          />
+
           <div
             className="ball"
             style={{
@@ -61,4 +70,5 @@ function Task_21() {
     </div>
   );
 }
+
 export default Task_21;
