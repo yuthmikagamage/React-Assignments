@@ -8,6 +8,7 @@ function Task_21() {
     gamma: 0,
   });
   const [ballY, setBallY] = useState(0);
+  const [ballX, setBallX] = useState(0);
   const [isAnimating, setIsAnimating] = useState(true);
   const [permissionGranted, setPermissionGranted] = useState(false);
 
@@ -39,18 +40,23 @@ function Task_21() {
 
   const lineX = Math.max(-125, Math.min(125, orientations.gamma * 2));
 
+  const getRandomBallX = () => {
+    return Math.random() * 250 - 125;
+  };
+
   useEffect(() => {
     if (!isAnimating) return;
 
     const interval = setInterval(() => {
       setBallY((prev) => {
         if (prev >= 135 && prev <= 140) {
-          const ballCenterX = 0;
+          const ballCenterX = ballX;
           const distance = Math.abs(ballCenterX - lineX);
           if (distance < 15 + 25) {
             setIsAnimating(false);
             setTimeout(() => {
               setBallY(0);
+              setBallX(getRandomBallX());
               setIsAnimating(true);
             }, 100);
             return prev;
@@ -58,6 +64,7 @@ function Task_21() {
         }
         if (prev >= 270) {
           setBallY(0);
+          setBallX(getRandomBallX());
           return 0;
         }
         return prev + 3;
@@ -65,7 +72,7 @@ function Task_21() {
     }, 16);
 
     return () => clearInterval(interval);
-  }, [isAnimating, lineX]);
+  }, [isAnimating, lineX, ballX]);
 
   return (
     <div className="task21">
@@ -80,7 +87,7 @@ function Task_21() {
           <div
             className="ball"
             style={{
-              transform: `translateY(${ballY}px)`,
+              transform: `translate(${ballX}px, ${ballY}px)`,
             }}
           />
         </div>
