@@ -5,10 +5,11 @@ function Task_21() {
   const [orientations, setOrientations] = useState({
     alpha: 0,
     beta: 0,
-    gamma: 100,
+    gamma: 0,
   });
   const [ballY, setBallY] = useState(0);
   const [isAnimating, setIsAnimating] = useState(true);
+  const [permissionGranted, setPermissionGranted] = useState(false);
 
   function handleOrientation(event) {
     setOrientations({
@@ -19,12 +20,28 @@ function Task_21() {
   }
 
   function getOrientationValues() {
-    window.addEventListener("deviceorientation", handleOrientation);
+    if (typeof DeviceOrientationEvent.requestPermission === "function") {
+      DeviceOrientationEvent.requestPermission()
+        .then((permissionState) => {
+          if (permissionState === "granted") {
+            setPermissionGranted(true);
+            window.addEventListener("deviceorientation", handleOrientation);
+          } else {
+            console.error("Device orientation permission denied");
+          }
+        })
+        .catch(console.error);
+    } else {
+      window.addEventListener("deviceorientation", handleOrientation);
+      setPermissionGranted(true);
+    }
   }
+
   const lineX = Math.max(-125, Math.min(125, orientations.gamma * 2));
 
   useEffect(() => {
     if (!isAnimating) return;
+
     const interval = setInterval(() => {
       setBallY((prev) => {
         if (prev >= 135 && prev <= 140) {
@@ -43,16 +60,16 @@ function Task_21() {
           setBallY(0);
           return 0;
         }
-
         return prev + 3;
       });
     }, 16);
+
     return () => clearInterval(interval);
   }, [isAnimating, lineX]);
 
   return (
     <div className="task21">
-      {orientations.gamma !== 0 ? (
+      {permissionGranted ? (
         <div className="container">
           <div
             className="center-line"
@@ -60,7 +77,6 @@ function Task_21() {
               transform: `translateX(${lineX}px)`,
             }}
           />
-
           <div
             className="ball"
             style={{
