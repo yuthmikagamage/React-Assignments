@@ -1,0 +1,67 @@
+.task22 .firstContainer {
+  height: 300px;
+  background-color: rgb(75, 75, 159);
+  color: white;
+  display: flex;
+  text-align: center;
+  font-size: 40px;
+
+  justify-content: center;
+}
+.task22 .upperContainer {
+  height: 50px;
+  background-color: rgb(38, 38, 131);
+}
+
+.task22 .secondContainer {
+  display: flex;
+  width: 100%;
+}
+
+.task22 .secondContainer .secondI {
+  background-color: rgb(174, 146, 46);
+}
+.task22 .secondContainer .secondII {
+  background-color: rgb(75, 141, 180);
+}
+.task22 .secondContainer .secondIII {
+  background-color: rgb(205, 112, 78);
+}
+.task22 .secondContainer .secondII,
+.secondIII,
+.secondI {
+  color: white;
+  height: 300px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+.task22 .thirdContainer {
+  height: 200px;
+  background-color: rgb(91, 174, 212);
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  color: white;
+}
+.task22 .forthContainer {
+  height: 400px;
+  background-color: rgb(99, 124, 135);
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .task22 .secondContainer {
+    flex-direction: column;
+  }
+  .task22 .secondContainer .secondII,
+  .secondIII,
+  .secondI {
+    flex: none;
+    width: 100vw;
+  }
+}
