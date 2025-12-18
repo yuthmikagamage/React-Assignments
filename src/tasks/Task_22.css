@@ -5,19 +5,16 @@
   display: flex;
   text-align: center;
   font-size: 40px;
-
   justify-content: center;
 }
 .task22 .upperContainer {
   height: 50px;
   background-color: rgb(38, 38, 131);
 }
-
 .task22 .secondContainer {
   display: flex;
   width: 100%;
 }
-
 .task22 .secondContainer .secondI {
   background-color: rgb(174, 146, 46);
 }
@@ -52,6 +49,21 @@
   justify-content: center;
   font-size: 30px;
   color: white;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .task22 .secondContainer {
+    flex-wrap: wrap;
+  }
+  .task22 .secondContainer .secondI {
+    flex: none;
+    width: 100%;
+  }
+  .task22 .secondContainer .secondII,
+  .task22 .secondContainer .secondIII {
+    flex: 1;
+    width: 50%;
+  }
 }
 
 @media (max-width: 768px) {
