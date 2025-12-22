@@ -1,0 +1,24 @@
+:root {
+  --backgroundColor: white;
+}
+
+.task23 .mainContainer,
+.firstContainer {
+  height: 500px;
+  width: 350px;
+  border-radius: 20px;
+  background-color: var(--backgroundColor);
+}
+
+.task23 {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.task23 button {
+  color: white;
+  background-color: black;
+  padding: 5px 10px 5px 10px;
+}

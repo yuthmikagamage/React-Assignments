@@ -53,6 +53,7 @@ function App() {
         <Link to="/TSK_20">Task 20</Link>
         <Link to="/TSK_21">Task 21</Link>
         <Link to="/TSK_22">Task 22</Link>
+        <Link to="/TSK_23">Task 23</Link>
       </div>
     </div>
   );
