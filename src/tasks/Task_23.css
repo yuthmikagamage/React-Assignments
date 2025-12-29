@@ -1,13 +1,34 @@
-:root {
-  --backgroundColor: ;
+.mainContainer[theme="dark"] {
+  --backgroundColor: rgb(51, 51, 51);
+  --firstBackgroundColor: rgb(77, 77, 77);
+  --textColor: #fff;
+}
+
+.mainContainer[theme="light"] {
+  --backgroundColor: rgb(247, 247, 247);
+  --firstBackgroundColor: rgb(255, 255, 255);
+  --textColor: #000;
+}
+
+.task23 .mainContainer {
+  height: 500px;
+  width: 350px;
+  background-color: var(--backgroundColor);
 }
 
 .task23 .mainContainer,
 .firstContainer {
-  height: 500px;
-  width: 350px;
   border-radius: 20px;
-  background-color: var(--backgroundColor);
+}
+
+.task23 .firstContainer {
+  background-color: var(--firstBackgroundColor);
+}
+
+h4 {
+  margin: 0;
+  color: var(--textColor);
+  background-color: var(--firstBackgroundColor);
 }
 
 .task23 {
@@ -17,8 +38,58 @@
   justify-content: center;
   align-items: center;
 }
-.task23 button {
-  color: white;
-  background-color: black;
-  padding: 5px 10px 5px 10px;
+
+.firstContainer {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  justify-content: center;
+}
+
+.toggle-button {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 0;
+}
+
+.mainContainer[theme="dark"] .toggle-button {
+  background-color: #4caf50;
+}
+
+.mainContainer[theme="light"] .toggle-button {
+  background-color: #ccc;
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.mainContainer[theme="dark"] .toggle-slider {
+  transform: translateX(30px);
+}
+
+.mainContainer[theme="light"] .toggle-slider {
+  transform: translateX(0);
+}
+
+.toggle-button:hover {
+  opacity: 0.9;
+}
+
+.toggle-button:active .toggle-slider {
+  width: 28px;
 }
