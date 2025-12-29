@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Task_23.css";
 
 function Task_23() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
   return (
     <div className="task23">
@@ -16,6 +16,25 @@ function Task_23() {
           >
             <span className="toggle-slider"></span>
           </button>
+        </div>
+        <div className="secondContainer">
+          <input placeholder="Search"></input>
+        </div>
+        <div className="thirdContainer">
+          <div className="thirdContainerI"></div>
+          <div className="thirdContainerII"></div>
+        </div>
+        <div className="forthContainer">
+          <div className="forthContainerII"></div>
+          <div className="forthContainerIII"></div>
+          <div className="forthContainerVI"></div>
+          <div className="forthContainerV"></div>
+          <div className="forthContainerVI"></div>
+          <div className="forthContainerVII"></div>
+          <div className="forthContainerVIII"></div>
+          <div className="forthContainerXI"></div>
+          <div className="forthContainerX"></div>
+          <div className="forthContainerXI"></div>
         </div>
       </div>
     </div>
