@@ -1,0 +1,26 @@
+.task-24 {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(40, 32, 88);
+  display: flex;
+  justify-content: center;
+}
+.task-24 .task-24-container {
+  height: 370px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 300px;
+  padding: 15px 8px;
+}
+.task-24 .task-24-container .bottle {
+  height: 160px;
+  width: 50px;
+  border-radius: 0px 0px 25px 25px;
+  border: 2px solid black;
+  border-top-width: 0px;
+  background-color: rgba(255, 255, 255, 0);
+}
