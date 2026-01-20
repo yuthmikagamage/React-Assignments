@@ -17,10 +17,15 @@ const TOTAL_BOTTLES = 8;
 function Task_24() {
   const [bottles, setBottles] = useState([]);
   const [selectedBottle, setSelectedBottle] = useState(null);
+  const [isWon, setIsWon] = useState(false);
 
   useEffect(() => {
     initializeGame();
   }, []);
+
+  useEffect(() => {
+    checkWinCondition();
+  }, [bottles]);
 
   function initializeGame() {
     let colorPool = [];
@@ -40,6 +45,7 @@ function Task_24() {
 
     setBottles(newBottles);
     setSelectedBottle(null);
+    setIsWon(false);
   }
 
   function getTopColor(bottle) {
@@ -74,6 +80,8 @@ function Task_24() {
   }
 
   function clickBottle(bottleId) {
+    if (isWon) return;
+
     if (selectedBottle === null) {
       if (bottles[bottleId].length > 0) {
         setSelectedBottle(bottleId);
@@ -90,26 +98,54 @@ function Task_24() {
     setSelectedBottle(null);
   }
 
+  function checkWinCondition() {
+    if (bottles.length === 0) return;
+
+    const won = bottles.every((bottle) => {
+      if (bottle.length === 0) return true;
+      if (bottle.length !== BOTTLE_CAPACITY) return false;
+
+      const firstColor = bottle[0];
+      return bottle.every((color) => color === firstColor);
+    });
+
+    setIsWon(won);
+  }
+
   return (
     <div className="task-24">
       <div className="task-24-container">
-        {bottles.map((bottle, bottleId) => (
-          <div
-            key={bottleId}
-            className={`bottle ${
-              selectedBottle === bottleId ? "selected" : ""
-            }`}
-            onClick={() => clickBottle(bottleId)}
-          >
-            {bottle.map((color, colorID) => (
-              <div
-                key={colorID}
-                className="liquid"
-                style={{ backgroundColor: color }}
-              />
-            ))}
+        <h2 className="title">Water Sort Puzzle</h2>
+
+        {isWon && (
+          <div className="win-message">
+            🎉 Congratulations! You solved the puzzle!
           </div>
-        ))}
+        )}
+
+        <div className="bottle-grid">
+          {bottles.map((bottle, bottleId) => (
+            <div
+              key={bottleId}
+              className={`bottle ${
+                selectedBottle === bottleId ? "selected" : ""
+              }`}
+              onClick={() => clickBottle(bottleId)}
+            >
+              {bottle.map((color, colorID) => (
+                <div
+                  key={colorID}
+                  className="liquid"
+                  style={{ backgroundColor: color }}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+
+        <button className="reset-btn" onClick={initializeGame}>
+          Reset Game
+        </button>
       </div>
     </div>
   );
