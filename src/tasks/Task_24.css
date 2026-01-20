@@ -32,3 +32,14 @@
   width: 100%;
   opacity: 0.7;
 }
+.bottle {
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.bottle.selected {
+  transform: translateY(-10px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
