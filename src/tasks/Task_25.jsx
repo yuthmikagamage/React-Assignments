@@ -4,27 +4,46 @@ import "./Task_25.css";
 function Task_25() {
   const [boxes, setBoxes] = useState([]);
   const [count, setCount] = useState(1);
+  const [dragging, setDragging] = useState(false);
 
   useEffect(() => {
     const initialBoxes = Array(9).fill(null);
     setBoxes(initialBoxes);
   }, []);
 
-  function clickBox(index) {
+  function fillBox(index) {
     if (boxes[index] !== null) return;
 
     const newBoxes = [...boxes];
     newBoxes[index] = count;
-
     setBoxes(newBoxes);
     setCount(count + 1);
+  }
+
+  function handleMouseDown(index) {
+    setDragging(true);
+    fillBox(index);
+  }
+
+  function handleMouseMove(index) {
+    if (!dragging) return;
+    fillBox(index);
+  }
+  function handleMouseUp() {
+    setDragging(false);
   }
 
   return (
     <div className="task25">
       <div className="task-25-container">
         {boxes.map((value, index) => (
-          <div key={index} className="box" onClick={() => clickBox(index)}>
+          <div
+            key={index}
+            className="box"
+            onMouseDown={() => handleMouseDown(index)}
+            onMouseMove={() => handleMouseMove(index)}
+            onMouseUp={handleMouseUp}
+          >
             {value}
           </div>
         ))}
