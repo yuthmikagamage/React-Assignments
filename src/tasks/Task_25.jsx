@@ -12,8 +12,16 @@ function Task_25() {
   }, []);
 
   function fillBox(index) {
-    if (boxes[index] !== null) return;
+    const currentBoxValue = boxes[index];
 
+    if (currentBoxValue !== null) {
+      const newBoxes = boxes.map((value) =>
+        value !== null && value > currentBoxValue ? null : value,
+      );
+      setBoxes(newBoxes);
+      setCount(currentBoxValue + 1);
+      return;
+    }
     const newBoxes = [...boxes];
     newBoxes[index] = count;
     setBoxes(newBoxes);
@@ -21,14 +29,21 @@ function Task_25() {
   }
 
   function handleMouseDown(index) {
+    setBoxes(Array(9).fill(null));
+    setCount(1);
     setDragging(true);
-    fillBox(index);
+
+    const newBoxes = Array(9).fill(null);
+    newBoxes[index] = 1;
+    setBoxes(newBoxes);
+    setCount(2);
   }
 
   function handleMouseMove(index) {
     if (!dragging) return;
     fillBox(index);
   }
+
   function handleMouseUp() {
     setDragging(false);
   }
