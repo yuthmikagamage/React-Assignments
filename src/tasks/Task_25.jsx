@@ -5,23 +5,39 @@ function Task_25() {
   const [boxes, setBoxes] = useState([]);
   const [count, setCount] = useState(1);
   const [dragging, setDragging] = useState(false);
+  const [solved, setSolved] = useState(false);
+
+  const targetPuzzle = [9, 2, 1, 8, 3, 4, 7, 6, 5];
+  const initialPuzzle = [9, null, 1, null, null, null, null, 6, null];
 
   useEffect(() => {
-    const initialBoxes = Array(9).fill(null);
-    setBoxes(initialBoxes);
+    setBoxes(initialPuzzle);
   }, []);
+
+  useEffect(() => {
+    if (boxes.length === 9 && boxes.every((value) => value !== null)) {
+      const isSolved = boxes.every(
+        (value, index) => value === targetPuzzle[index],
+      );
+      setSolved(isSolved);
+    } else {
+      setSolved(false);
+    }
+  }, [boxes]);
 
   function fillBox(index) {
     const currentBoxValue = boxes[index];
 
     if (currentBoxValue !== null) {
-      const newBoxes = boxes.map((value) =>
-        value !== null && value > currentBoxValue ? null : value,
-      );
+      const newBoxes = boxes.map((value, idx) => {
+        if (initialPuzzle[idx] !== null) return value;
+        return value !== null && value > currentBoxValue ? null : value;
+      });
       setBoxes(newBoxes);
       setCount(currentBoxValue + 1);
       return;
     }
+
     const newBoxes = [...boxes];
     newBoxes[index] = count;
     setBoxes(newBoxes);
@@ -29,11 +45,13 @@ function Task_25() {
   }
 
   function handleMouseDown(index) {
-    setBoxes(Array(9).fill(null));
-    setCount(1);
-    setDragging(true);
+    if (boxes[index] !== 1) return;
 
-    const newBoxes = Array(9).fill(null);
+    setDragging(true);
+    setSolved(false);
+    const newBoxes = boxes.map((value, idx) =>
+      initialPuzzle[idx] !== null ? initialPuzzle[idx] : null,
+    );
     newBoxes[index] = 1;
     setBoxes(newBoxes);
     setCount(2);
@@ -54,7 +72,7 @@ function Task_25() {
         {boxes.map((value, index) => (
           <div
             key={index}
-            className="box"
+            className={`box ${solved ? "solved" : ""} ${initialPuzzle[index] !== null ? "initial" : ""}`}
             onMouseDown={() => handleMouseDown(index)}
             onMouseMove={() => handleMouseMove(index)}
             onMouseUp={handleMouseUp}

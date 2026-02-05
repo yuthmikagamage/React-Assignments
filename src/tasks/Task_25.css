@@ -4,7 +4,9 @@
   width: 100vw;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
+
 .task-25-container {
   height: 350px;
   width: 350px;
@@ -13,7 +15,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   place-items: center;
+  gap: 5px;
+  padding: 10px;
 }
+
 .box {
   width: 100px;
   height: 100px;
@@ -26,5 +31,15 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  user-select: none; /* IMPORTANT for drag */
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.box.initial {
+  background-color: rgba(100, 150, 255, 0.3);
+}
+
+.box.solved {
+  background-color: rgba(71, 207, 71, 0.5);
+  animation: pulse 0.5s ease;
 }
