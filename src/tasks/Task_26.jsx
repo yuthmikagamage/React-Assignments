@@ -1,4 +1,47 @@
 import "./Task_26.css";
+
+const createRandomRow = () => {
+  return [1, 2, 3, 4].sort(() => Math.random() - 0.5);
+};
+
+const createRandomGrid = () => {
+  const grid = [];
+  for (let i = 0; i < 4; i++) {
+    grid.push(createRandomRow());
+  }
+  return grid;
+};
+
+const validateGrid = (grid) => {
+  // check: should not repeat same digit in a single column
+  for (let col = 0; col < 4; col++) {
+    const columnValues = [];
+    for (let colDown = 0; colDown < 4; colDown++) {
+      const value = grid[colDown][col];
+      if (columnValues.includes(value)) {
+        return false;
+      }
+      columnValues.push(value);
+    }
+  }
+  // check: should not repeat same digit in a 2 x 2 grid
+  for (let row = 0; row < 4; row += 2) {
+    for (let col = 0; col < 4; col += 2) {
+      const values = [];
+      for (let i = 0; i < 2; i++) {
+        for (let j = 0; j < 2; j++) {
+          const value = grid[row + i][col + j];
+          if (values.includes(value)) {
+            return false;
+          }
+          values.push(value);
+        }
+      }
+    }
+  }
+  return true;
+};
+
 function Task_26() {
   console.log("Task_26");
   const exampleValidGrid = [
@@ -13,48 +56,6 @@ function Task_26() {
     [1, 3, 2, 4],
     [4, 2, 3, 1],
   ];
-
-  const createRandomRow = () => {
-    return [1, 2, 3, 4].sort(() => Math.random() - 0.5);
-  };
-
-  const createRandomGrid = () => {
-    const grid = [];
-    for (let i = 0; i < 4; i++) {
-      grid.push(createRandomRow());
-    }
-    return grid;
-  };
-
-  const validateGrid = (grid) => {
-    // check: should not repeat same digit in a single column
-    for (let col = 0; col < 4; col++) {
-      const columnValues = [];
-      for (let colDown = 0; colDown < 4; colDown++) {
-        const value = grid[colDown][col];
-        if (columnValues.includes(value)) {
-          return false;
-        }
-        columnValues.push(value);
-      }
-    }
-    // check: should not repeat same digit in a 2 x 2 grid
-    for (let row = 0; row < 4; row += 2) {
-      for (let col = 0; col < 4; col += 2) {
-        const values = [];
-        for (let i = 0; i < 2; i++) {
-          for (let j = 0; j < 2; j++) {
-            const value = grid[row + i][col + j];
-            if (values.includes(value)) {
-              return false;
-            }
-            values.push(value);
-          }
-        }
-      }
-    }
-    return true;
-  };
 
   // create randomized grids
   const grid_1 = createRandomGrid();
