@@ -78,8 +78,18 @@ function Task_26() {
   console.log("validation_4", validation_4);
 
   return (
-    <div className="Task_26">
-      <h1>Task_26</h1>
+    <div className="task_26">
+      <div className="task_26_container">
+        {exampleValidGrid.map((row, rowIndex) => (
+          <div className="gridRow" key={rowIndex}>
+            {row.map((cell, cellIndex) => (
+              <div className="gridCell" key={cellIndex}>
+                {cell}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
