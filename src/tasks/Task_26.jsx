@@ -1,5 +1,5 @@
+import { useEffect, useState } from "react";
 import "./Task_26.css";
-
 const createRandomRow = () => {
   return [1, 2, 3, 4].sort(() => Math.random() - 0.5);
 };
@@ -41,46 +41,67 @@ const validateGrid = (grid) => {
   }
   return true;
 };
+const createSudoku = () => {
+  let valid = false;
+  let grid = [];
+  while (!valid) {
+    grid = createRandomGrid();
+    valid = validateGrid(grid);
+  }
+  return grid;
+};
+
+const createEditedSudoku = (correctSudoku) => {
+  console.log("Correct Sudoku ", correctSudoku);
+  let grid = [];
+  for (let row = 0; row < 4; row++) {
+    let currentRow = [];
+    if (row % 2 !== 0) {
+      currentRow = [" ", " ", " ", " "];
+    } else {
+      for (let item = 0; item < 4; item += 2) {
+        currentRow.push(correctSudoku[row][item]);
+        currentRow.push(" ");
+      }
+    }
+    grid.push(currentRow);
+  }
+  return grid;
+};
+
+const checkSudoku = () => {};
 
 function Task_26() {
-  console.log("Task_26");
-  const exampleValidGrid = [
-    [2, 1, 4, 3],
-    [3, 4, 1, 2],
-    [1, 3, 2, 4],
-    [4, 2, 3, 1],
-  ];
-  const exampleInvalidGrid = [
-    [2, 1, 3, 4],
-    [3, 4, 1, 2],
-    [1, 3, 2, 4],
-    [4, 2, 3, 1],
-  ];
+  const [correctSudoku, setCorrectSudoku] = useState([]);
+  const [editedCorrectSudoku, setEditedCorrectSudoku] = useState([]);
+  const [selectedNumber, setSelectedNumber] = useState(null);
 
-  // create randomized grids
-  const grid_1 = createRandomGrid();
-  const grid_2 = createRandomGrid();
-  // validating randomized grids
-  const validation_1 = validateGrid(grid_1);
-  const validation_2 = validateGrid(grid_2);
+  useEffect(() => {
+    initializeGame();
+  }, []);
 
-  // mostly will return false since just two random grids
-  console.log("validation_1", validation_1);
-  console.log("validation_2", validation_2);
-
-  // validating given example grids
-  const validation_3 = validateGrid(exampleValidGrid);
-  const validation_4 = validateGrid(exampleInvalidGrid);
-
-  // should display true
-  console.log("validation_3", validation_3);
-  // should display false
-  console.log("validation_4", validation_4);
+  const initializeGame = () => {
+    const getSudoku = createSudoku();
+    setCorrectSudoku(getSudoku);
+    const emptySudoku = createEditedSudoku(getSudoku);
+    setEditedCorrectSudoku(emptySudoku);
+  };
 
   return (
     <div className="task_26">
+      <div className="task_26_numbers">
+        {[1, 2, 3, 4].map((number, key) => (
+          <div
+            className={`dragNumber ${selectedNumber === number ? "selected" : ""}`}
+            key={key}
+            onClick={() => setSelectedNumber(number)}
+          >
+            {number}
+          </div>
+        ))}
+      </div>
       <div className="task_26_container">
-        {exampleValidGrid.map((row, rowIndex) => (
+        {editedCorrectSudoku.map((row, rowIndex) => (
           <div className="gridRow" key={rowIndex}>
             {row.map((cell, cellIndex) => (
               <div className="gridCell" key={cellIndex}>
@@ -89,6 +110,11 @@ function Task_26() {
             ))}
           </div>
         ))}
+      </div>
+      <div className="task_26_buttons">
+        {" "}
+        <button onClick={initializeGame}>Reset</button>
+        <button>Check</button>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@
   height: 100vh;
   width: 100vw;
   background-color: rgb(35, 26, 90);
+  flex-direction: column;
 }
 .task_26_container {
   width: 300px;
@@ -13,6 +14,7 @@
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   gap: 4px;
+  padding: 5px;
 }
 
 .gridRow {
@@ -24,5 +26,49 @@
 }
 .gridCell {
   color: white;
-  background-color: rgb(54, 49, 127);
+  background-color: rgb(86, 80, 159);
+  border-radius: 5px;
+  height: 50px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+}
+.task_26 button {
+  margin-top: 30px;
+  color: white;
+  padding: 10px 40px;
+  font-size: 15px;
+  background-color: rgba(255, 255, 255, 0.15);
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+}
+.task_26 button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+}
+.task_26_buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: rgb(35, 26, 90);
+}
+.task_26_numbers {
+  display: flex;
+  gap: 10px;
+  background-color: rgb(35, 26, 90);
+  margin-bottom: 20px;
+}
+.task_26_numbers .dragNumber {
+  height: 45px;
+  width: 65px;
+  background-color: rgba(255, 255, 255, 0.25);
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 15px;
+  border-radius: 5px;
+}
+.task_26_numbers .dragNumber.selected {
+  background-color: rgba(26, 110, 213, 0.55);
 }
