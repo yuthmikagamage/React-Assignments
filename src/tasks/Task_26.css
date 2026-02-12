@@ -39,14 +39,23 @@
   justify-content: center;
   align-items: center;
   font-size: 20px;
+  transition: background-color 0.3s ease;
 }
 .gridCell {
   background-color: rgb(26, 19, 107);
 }
 
 .fixedCell {
-  background-color: rgb(25, 18, 54) !important;
+  background-color: rgb(0, 0, 0);
   cursor: not-allowed;
+}
+
+.correct {
+  background-color: rgb(11, 96, 11);
+}
+
+.wrong {
+  background-color: rgb(127, 17, 39);
 }
 
 .task_26 button {

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Task_26.css";
+
 const createRandomRow = () => {
   return [1, 2, 3, 4].sort(() => Math.random() - 0.5);
 };
@@ -40,6 +41,7 @@ const validateGrid = (grid) => {
   }
   return true;
 };
+
 const createSudoku = () => {
   let valid = false;
   let grid = [];
@@ -70,6 +72,7 @@ const createEditedSudoku = (correctSudoku) => {
 function Task_26() {
   const [correctSudoku, setCorrectSudoku] = useState([]);
   const [editedCorrectSudoku, setEditedCorrectSudoku] = useState([]);
+  const [validationState, setValidationState] = useState([]);
 
   useEffect(() => {
     initializeGame();
@@ -81,9 +84,28 @@ function Task_26() {
 
     const edited = createEditedSudoku(sudoku);
     setEditedCorrectSudoku(edited);
+    setValidationState([]);
   };
 
-  const checkSudoku = () => {};
+  const checkSudoku = () => {
+    const validation = [];
+
+    for (let row = 0; row < 4; row++) {
+      const validationRow = [];
+      for (let col = 0; col < 4; col++) {
+        const userValue = editedCorrectSudoku[row][col];
+        const correctValue = correctSudoku[row][col];
+        if (userValue === correctValue) {
+          validationRow.push("correct");
+        } else {
+          validationRow.push("wrong");
+        }
+      }
+      validation.push(validationRow);
+    }
+
+    setValidationState(validation);
+  };
 
   const clickNumber = (row, col) => {
     if (row % 2 === 0 && col % 2 === 0) {
@@ -103,24 +125,19 @@ function Task_26() {
       <div className="task_26_container">
         {editedCorrectSudoku.map((row, rowIndex) => (
           <div className="gridRow" key={rowIndex}>
-            {row.map((cellValue, cellIndex) => {
-              const isPreFilled = rowIndex % 2 === 0 && cellIndex % 2 === 0;
-              const isEmpty = cellValue === 0;
-
-              return (
+            {row.map((cellValue, cellIndex) => (
+              <div
+                className="gridCellWrapper"
+                key={cellIndex}
+                onClick={() => clickNumber(rowIndex, cellIndex)}
+              >
                 <div
-                  className="gridCellWrapper"
-                  key={cellIndex}
-                  onClick={() => clickNumber(rowIndex, cellIndex)}
+                  className={`${cellValue === 0 ? "emptyGridCell" : "gridCell"} ${rowIndex % 2 === 0 && cellIndex % 2 === 0 ? "fixedCell" : ""} ${validationState[rowIndex]?.[cellIndex] || ""}`}
                 >
-                  <div
-                    className={`${isEmpty ? "emptyGridCell" : "gridCell"} ${isPreFilled ? "fixedCell" : ""}`}
-                  >
-                    {isEmpty ? "" : cellValue}
-                  </div>
+                  {cellValue === 0 ? "" : cellValue}
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         ))}
       </div>
