@@ -13,18 +13,17 @@ const createRandomGrid = () => {
 };
 
 const validateGrid = (grid) => {
-  // check: should not repeat same digit in a single column
   for (let col = 0; col < 4; col++) {
     const columnValues = [];
-    for (let colDown = 0; colDown < 4; colDown++) {
-      const value = grid[colDown][col];
+    for (let row = 0; row < 4; row++) {
+      const value = grid[row][col];
       if (columnValues.includes(value)) {
         return false;
       }
       columnValues.push(value);
     }
   }
-  // check: should not repeat same digit in a 2 x 2 grid
+  // check 2x2 squares
   for (let row = 0; row < 4; row += 2) {
     for (let col = 0; col < 4; col += 2) {
       const values = [];
@@ -52,16 +51,15 @@ const createSudoku = () => {
 };
 
 const createEditedSudoku = (correctSudoku) => {
-  console.log("Correct Sudoku ", correctSudoku);
+  console.log(correctSudoku);
   let grid = [];
   for (let row = 0; row < 4; row++) {
     let currentRow = [];
-    if (row % 2 !== 0) {
-      currentRow = [" ", " ", " ", " "];
-    } else {
-      for (let item = 0; item < 4; item += 2) {
-        currentRow.push(correctSudoku[row][item]);
-        currentRow.push(" ");
+    for (let col = 0; col < 4; col++) {
+      if (row % 2 !== 0 || col % 2 !== 0) {
+        currentRow.push(0);
+      } else {
+        currentRow.push(correctSudoku[row][col]);
       }
     }
     grid.push(currentRow);
@@ -69,54 +67,70 @@ const createEditedSudoku = (correctSudoku) => {
   return grid;
 };
 
-const checkSudoku = () => {};
-
 function Task_26() {
   const [correctSudoku, setCorrectSudoku] = useState([]);
   const [editedCorrectSudoku, setEditedCorrectSudoku] = useState([]);
-  const [selectedNumber, setSelectedNumber] = useState(null);
 
   useEffect(() => {
     initializeGame();
   }, []);
 
   const initializeGame = () => {
-    const getSudoku = createSudoku();
-    setCorrectSudoku(getSudoku);
-    const emptySudoku = createEditedSudoku(getSudoku);
-    setEditedCorrectSudoku(emptySudoku);
+    const sudoku = createSudoku();
+    setCorrectSudoku(sudoku);
+
+    const edited = createEditedSudoku(sudoku);
+    setEditedCorrectSudoku(edited);
+  };
+
+  const checkSudoku = () => {};
+
+  const clickNumber = (row, col) => {
+    if (row % 2 === 0 && col % 2 === 0) {
+      return;
+    }
+
+    setEditedCorrectSudoku((prev) => {
+      const newGrid = prev.map((r) => [...r]);
+      const currentValue = newGrid[row][col];
+      newGrid[row][col] = currentValue === 4 ? 0 : currentValue + 1;
+      return newGrid;
+    });
   };
 
   return (
     <div className="task_26">
-      <div className="task_26_numbers">
-        {[1, 2, 3, 4].map((number, key) => (
-          <div
-            className={`dragNumber ${selectedNumber === number ? "selected" : ""}`}
-            key={key}
-            onClick={() => setSelectedNumber(number)}
-          >
-            {number}
-          </div>
-        ))}
-      </div>
       <div className="task_26_container">
         {editedCorrectSudoku.map((row, rowIndex) => (
           <div className="gridRow" key={rowIndex}>
-            {row.map((cell, cellIndex) => (
-              <div className="gridCell" key={cellIndex}>
-                {cell}
-              </div>
-            ))}
+            {row.map((cellValue, cellIndex) => {
+              const isPreFilled = rowIndex % 2 === 0 && cellIndex % 2 === 0;
+              const isEmpty = cellValue === 0;
+
+              return (
+                <div
+                  className="gridCellWrapper"
+                  key={cellIndex}
+                  onClick={() => clickNumber(rowIndex, cellIndex)}
+                >
+                  <div
+                    className={`${isEmpty ? "emptyGridCell" : "gridCell"} ${isPreFilled ? "fixedCell" : ""}`}
+                  >
+                    {isEmpty ? "" : cellValue}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         ))}
       </div>
+
       <div className="task_26_buttons">
-        {" "}
         <button onClick={initializeGame}>Reset</button>
-        <button>Check</button>
+        <button onClick={checkSudoku}>Check</button>
       </div>
     </div>
   );
 }
+
 export default Task_26;
