@@ -1,11 +1,13 @@
 .task_26 {
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 100vh;
   width: 100vw;
   background-color: rgb(35, 26, 90);
   flex-direction: column;
 }
+
 .task_26_container {
   width: 300px;
   height: 300px;
@@ -24,11 +26,11 @@
   background-color: rgb(54, 49, 127);
   text-align: center;
 }
+
 .gridCellWrapper {
   background-color: rgb(54, 49, 127);
-  cursor: pointer;
 }
-.emptyGridCell,
+
 .gridCell {
   color: white;
   background-color: rgb(86, 80, 159);
@@ -41,21 +43,32 @@
   font-size: 20px;
   transition: background-color 0.3s ease;
 }
-.gridCell {
-  background-color: rgb(26, 19, 107);
-}
-
 .fixedCell {
   background-color: rgb(0, 0, 0);
+  color: white;
   cursor: not-allowed;
 }
+.editableCell {
+  background-color: rgb(86, 80, 159);
+  cursor: pointer;
+}
 
+.editableCell:hover {
+  background-color: rgb(100, 94, 173);
+}
 .correct {
-  background-color: rgb(11, 96, 11);
+  background-color: rgb(11, 96, 11) !important;
 }
 
 .wrong {
-  background-color: rgb(127, 17, 39);
+  background-color: rgb(127, 17, 39) !important;
+}
+
+.task_26_buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: rgb(35, 26, 90);
 }
 
 .task_26 button {
@@ -68,13 +81,8 @@
   border: none;
   border-radius: 5px;
 }
+
 .task_26 button:hover {
   background-color: rgba(255, 255, 255, 0.25);
   cursor: pointer;
-}
-.task_26_buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  background-color: rgb(35, 26, 90);
 }

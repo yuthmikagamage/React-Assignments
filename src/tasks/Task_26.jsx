@@ -54,24 +54,25 @@ const createSudoku = () => {
 
 const createEditedSudoku = (correctSudoku) => {
   console.log(correctSudoku);
-  let grid = [];
-  for (let row = 0; row < 4; row++) {
-    let currentRow = [];
-    for (let col = 0; col < 4; col++) {
-      if (row % 2 !== 0 || col % 2 !== 0) {
-        currentRow.push(0);
-      } else {
-        currentRow.push(correctSudoku[row][col]);
-      }
+  const grid = Array.from({ length: 4 }, () => Array(4).fill(0));
+  for (let blockRow = 0; blockRow < 4; blockRow += 2) {
+    for (let blockCol = 0; blockCol < 4; blockCol += 2) {
+      const randomRowOffset = Math.floor(Math.random() * 2);
+      const randomColOffset = Math.floor(Math.random() * 2);
+      const finalRow = blockRow + randomRowOffset;
+      const finalCol = blockCol + randomColOffset;
+
+      grid[finalRow][finalCol] = correctSudoku[finalRow][finalCol];
     }
-    grid.push(currentRow);
   }
+
   return grid;
 };
 
 function Task_26() {
   const [correctSudoku, setCorrectSudoku] = useState([]);
   const [editedCorrectSudoku, setEditedCorrectSudoku] = useState([]);
+  const [fixedCells, setFixedCells] = useState([]);
   const [validationState, setValidationState] = useState([]);
 
   useEffect(() => {
@@ -84,6 +85,10 @@ function Task_26() {
 
     const edited = createEditedSudoku(sudoku);
     setEditedCorrectSudoku(edited);
+
+    const fixed = edited.map((row) => row.map((cell) => cell !== 0));
+    setFixedCells(fixed);
+
     setValidationState([]);
   };
 
@@ -108,7 +113,7 @@ function Task_26() {
   };
 
   const clickNumber = (row, col) => {
-    if (row % 2 === 0 && col % 2 === 0) {
+    if (fixedCells[row]?.[col]) {
       return;
     }
 
@@ -118,6 +123,10 @@ function Task_26() {
       newGrid[row][col] = currentValue === 4 ? 0 : currentValue + 1;
       return newGrid;
     });
+  };
+
+  const isCellFixed = (row, col) => {
+    return fixedCells[row]?.[col];
   };
 
   return (
@@ -132,7 +141,11 @@ function Task_26() {
                 onClick={() => clickNumber(rowIndex, cellIndex)}
               >
                 <div
-                  className={`${cellValue === 0 ? "emptyGridCell" : "gridCell"} ${rowIndex % 2 === 0 && cellIndex % 2 === 0 ? "fixedCell" : ""} ${validationState[rowIndex]?.[cellIndex] || ""}`}
+                  className={`
+                    gridCell
+                    ${isCellFixed(rowIndex, cellIndex) ? "fixedCell" : "editableCell"} 
+                    ${validationState[rowIndex]?.[cellIndex] || ""}
+                  `}
                 >
                   {cellValue === 0 ? "" : cellValue}
                 </div>
