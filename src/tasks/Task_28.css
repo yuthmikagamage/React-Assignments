@@ -1,0 +1,34 @@
+.task-28 {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(35, 26, 90);
+  display: flex;
+  justify-content: center;
+}
+.task-28-container {
+  height: 500px;
+  background-image: url("./pattern-lock.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 30px;
+  background-size: cover;
+}
+.task-28-container .pattern {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #0005;
+  height: inherit;
+  width: inherit;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+}
+.task-28-container .heading {
+  color: white;
+  background-color: rgba(255, 255, 255, 0);
+}
+svg {
+  height: 350px;
+  width: 350px;
+  background-color: rgba(255, 255, 255, 0);
+}
