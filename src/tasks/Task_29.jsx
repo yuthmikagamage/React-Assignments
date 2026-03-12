@@ -11,6 +11,7 @@ const loadModels = async () => {
 function Task_29() {
   const [image, setImage] = useState(null);
   const imgRef = useRef();
+  const canvasRef = useRef();
 
   useEffect(() => {
     loadModels();
@@ -32,7 +33,24 @@ function Task_29() {
       new faceapi.SsdMobilenetv1Options(),
     );
 
-    console.log("result:", detections);
+    console.log("Detections:", detections);
+
+    const canvas = canvasRef.current;
+
+    const displaySize = {
+      width: imgRef.current.width,
+      height: imgRef.current.height,
+    };
+
+    canvas.width = displaySize.width;
+    canvas.height = displaySize.height;
+
+    const resized = faceapi.resizeResults(detections, displaySize);
+
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    faceapi.draw.drawDetections(canvas, resized);
   };
 
   return (
@@ -51,9 +69,22 @@ function Task_29() {
       </div>
 
       {image && (
-        <div className="preview-container">
-          <img ref={imgRef} src={image} alt="preview" onLoad={detectFace} />
-        </div>
+        <>
+          <div className="preview-container" style={{ position: "relative" }}>
+            <img
+              ref={imgRef}
+              src={image}
+              alt="preview"
+              style={{ width: "100%" }}
+            />
+
+            <canvas ref={canvasRef} />
+          </div>
+
+          <button className="detect-btn" onClick={detectFace}>
+            Detect Face
+          </button>
+        </>
       )}
     </div>
   );
